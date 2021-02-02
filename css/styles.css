@@ -22,15 +22,18 @@ a:hover {
   text-decoration: none;
 }
 h1 {
-  font-size: 50pt;
+  font-size: 100px;
   margin: 0;
+  text-shadow: 6px 6px 6px rgb(177, 174, 174);
 }
 h2 {
   margin: 0;
-  font-size: 30pt;
+  font-size: 45px;
 }
 h1, h2 {
   font-family: 'Caveat', cursive;
+  font-weight: 400;
+  text-shadow: 6px 6px 6px rgb(128, 126, 126)
   
 
 }
