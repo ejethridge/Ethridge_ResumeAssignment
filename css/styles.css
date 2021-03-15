@@ -58,7 +58,7 @@ h3 {
   border-bottom: 1px dashed;
   padding: 25px 0;
 }
-.divider > section: :last-of-type {
+.divider > section::last-of-type {
   border-bottom : none;
 }
 
@@ -72,15 +72,79 @@ header {
  
 }
 
+nav ul {
+  background-color: darkblue;
+  margin-top: 0;
+  margin-bottom: 0;
+  text-align: left;
+  /*align text within menu to the left*/
+  list-style: none;
+  /*get rid of the styling (i.e. bullets) in the list*/
+}
 
+nav ul li {
+  font: bold 12px/18px sans-serif;
+  /*change the font size and type*/
+  display: inline-block;
+  /*display list items in one line (makes list horizontal)*/
+  position: relative;
+  /*Will allow submenus to move, letting them open immidiately below the <br />different menu items (i.e. a relative location on the screen depending on the menu item chosen) */
+  padding: 15px 20px;
+  /*Put space around the text*/
+  background:darkblue;
+  /*Change background color of the menu items*/
+  cursor: pointer;
+  /*Change the mouse cursor to a pointer even if the text is not a link (useful for dropdown menus)*/
+}
+
+nav ul li:hover {
+  background: #555;
+  /*Change the background color of list item when hovered over*/
+  color: darkblue;
+  /*Change the color of the text when hovered over*/
+}
+
+nav ul li ul {
+  padding: 0;
+  /*Get rid of any defauld padding*/
+  position: absolute;
+  /*Works in conjunction with the earlier relative positioning code. Distinguishes submenu items from menu items and force submenus to open in the same position for each menu item (i.e. an absolute position immidiately below the menu item)*/
+  top: 48px;
+  /*Add a little space between the menu and submenu*/
+  left: -10000px;
+  /*Sets submenu way off screen on the left side so it's hidden from view*/
+  width: 150px;
+  /*Set the width for the submenu*/
+}
+
+nav ul li ul li {
+  background: #555;
+  /*Set background golor for submenu items*/
+  display: block;
+  /*Display the submenu items as a block - literally displays all submenu items in one large rectangle.*/
+  color: darkblue;
+  /*Set submenu text color*/
+}
+
+nav ul li ul li:hover {
+  background: #666;
+}
+
+/*Change submenu item's background color when hovered over*/
+nav ul li:hover ul {
+  display: block;
+  /*Display submenu as a block when the menu item is hovered over*/
+  left: 0px;
+  /*Resets submenu item to its proper location so it can be seen*/
+}
 /* Projects
 -----------------------------*/
 .projects {
   background-color: darkgrey;
 }
-.projects a{
+/*.projects a{
 
-}
+}*/
 
 .projects a {
   color: whitesmoke;
@@ -149,9 +213,9 @@ padding: 0;
 
 @media screen and (min-width: 750px) {
   .project-item img {
-    header, footer {
+ /*   header, footer {
       text-align: center;
-    }
+    }*/
     float: left;
     margin-right: 20px;
   }
@@ -159,9 +223,11 @@ padding: 0;
     display: grid;
     grid-template-columns: 1fr 2fr;
     column-gap: 20px;
-    }
-   .contact-list display: flex;
+  }
+    .contact-list {display: flex;
 justify-content: center;
+    }
+  }
 
     @media screen and (max-width: 749px) {
       h1 {
